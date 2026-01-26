@@ -1,5 +1,6 @@
 package com.example.productservice.dto.fakeStore;
 
+import com.example.productservice.models.Category;
 import com.example.productservice.models.productModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,9 @@ public class fakeStoreGetbodyResponsedto {
     public productModel toProduct(){
         productModel product1 = new productModel();
         product1.setId(this.getId());
-        product1.setCategoryName(this.getCategory());
+        Category category1  = new Category();
+        category1.setName(category);
+      product1.setCategory(category1);
         product1.setPrice(this.getPrice());
         product1.setDescription(this.getDescription());
         product1.setImageURL(this.getImage());

@@ -2,13 +2,11 @@ package com.example.productservice.advices;
 
 import com.example.productservice.Exceptions.ProductNotFoundException;
 import com.example.productservice.dto.ErrorResponseDto;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
-@RestControllerAdvice
 
+@ControllerAdvice
+@RestController
 public class ControllerAdvices {
 
     @ExceptionHandler(RuntimeException.class)

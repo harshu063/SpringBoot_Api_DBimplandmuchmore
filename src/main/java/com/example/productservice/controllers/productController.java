@@ -44,7 +44,7 @@ public class productController {
          public String GetSingleProduct( @PathVariable Long id){
             return "your product is here :" +id;
     }
-    @GetMapping("/")
+    @GetMapping
     public List <getAllProductsResponseDto> getAllProducts(){
         List<productModel> Products = productService.getAllProducts();
         List<getAllProductsResponseDto>getAllProductsResponseDtos= new ArrayList<>();
@@ -73,6 +73,7 @@ public class productController {
 
        return response;
     }
+    @PutMapping("")
         public void replaceProduct (){}
 
 

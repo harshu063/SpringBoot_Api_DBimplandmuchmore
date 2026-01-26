@@ -20,7 +20,7 @@ public class productServicefakestoreimpl implements productService{
     public productModel createProduct(productModel productModel) {
             fakeStorebodyRequestdto fakeStorebodyRequestdto = new fakeStorebodyRequestdto();
 
-            fakeStorebodyRequestdto.setCategory(productModel.getCategoryName());
+            fakeStorebodyRequestdto.setCategory(productModel.getCategory().getName());
             fakeStorebodyRequestdto.setTitle(productModel.getTitle());
             fakeStorebodyRequestdto.setPrice(productModel.getPrice());
             fakeStorebodyRequestdto.setImage(productModel.getImageURL());
