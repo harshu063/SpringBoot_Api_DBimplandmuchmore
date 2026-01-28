@@ -18,7 +18,12 @@ public class productController {
 
     private productService productService;
 
-    public productController (@Qualifier("fakeStoreProductService") productService productService){
+//    public productController (@Qualifier("fakeStoreProductService") productService productService){
+//        this.productService=productService;
+//
+//    }
+
+        public productController (@Qualifier("DBimpl") productService productService){
         this.productService=productService;
 
     }
@@ -61,7 +66,6 @@ public class productController {
 
             productModel product = productService.partialUpdateProduct(
                     productId,
-
                     productDto.toProduct());
             if(product==null){
                 throw new RuntimeException("update is failed");
