@@ -34,7 +34,7 @@ public class productServiceDBimpl implements productService {
         if(category.isEmpty()){
             Category toSaveCategory = new Category();
             toSaveCategory.setName(categoryName);
-            toBePutInProduct= categoryRepository.save(toSaveCategory);
+            toBePutInProduct= toSaveCategory;
 
 
 
@@ -103,4 +103,47 @@ public class productServiceDBimpl implements productService {
     public productModel getProductById(Long id) {
         return null;
     }
+    @Override
+    public productModel replaceProduct(Long productId, productModel product) {
+
+        Optional<productModel> existingOptional =
+                productRepository.findById(productId);
+
+        if (existingOptional.isEmpty()) {
+            throw new ProductNotFoundException("Product not found with id " + productId);
+        }
+
+        productModel existingProduct = existingOptional.get();
+
+
+        existingProduct.setTitle(product.getTitle());
+        existingProduct.setDescription(product.getDescription());
+        existingProduct.setPrice(product.getPrice());
+        existingProduct.setImageURL(product.getImageURL());
+
+        // handle category (same logic )
+        if (product.getCategory() != null) {
+            String categoryName = product.getCategory().getName();
+
+            Optional<Category> categoryOptional =
+                    categoryRepository.findByName(categoryName);
+
+            Category finalCategory;
+
+            if (categoryOptional.isEmpty()) {
+                Category newCategory = new Category();
+                newCategory.setName(categoryName);
+                finalCategory = categoryRepository.save(newCategory);
+            } else {
+                finalCategory = categoryOptional.get();
+            }
+
+            existingProduct.setCategory(finalCategory);
+        } else {
+            existingProduct.setCategory(null); // PUT means overwrite
+        }
+
+        return productRepository.save(existingProduct);
+    }
+
 }

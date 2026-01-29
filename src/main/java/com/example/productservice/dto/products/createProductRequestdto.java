@@ -11,7 +11,7 @@ public class createProductRequestdto {
     private String title;
     private String description;
     private Double price;
-    private String CategoryName;
+    private String categoryName;
 
 
     public productModel toproductModel(){
@@ -20,7 +20,7 @@ public class createProductRequestdto {
         productModel.setDescription(this.description);
         productModel.setPrice(this.price);
         Category  category = new Category();
-        category.setName(CategoryName);
+        category.setName(categoryName);
         productModel.setCategory(category);
 //        productModel.setCategory(this.Category);
         return productModel;

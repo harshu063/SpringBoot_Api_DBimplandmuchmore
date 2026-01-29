@@ -73,4 +73,9 @@ public class productServicefakestoreimpl implements productService{
         return response.toProduct();
     }
 
+    @Override
+    public productModel replaceProduct(Long productId, productModel product) {
+        return null;
+    }
+
 }

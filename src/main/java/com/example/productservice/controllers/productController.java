@@ -78,7 +78,12 @@ public class productController {
        return response;
     }
     @PutMapping("")
-        public void replaceProduct (){}
+    public productModel replaceProduct(
+            @PathVariable Long id,
+            @RequestBody productModel product
+    ) {
+        return productService.replaceProduct(id, product);
+    }
 
 
     }

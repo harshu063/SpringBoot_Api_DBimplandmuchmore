@@ -24,7 +24,7 @@ public class createProductResponsedto {
         responsedto.setTitle(productModel.getTitle());
         responsedto.setPrice(productModel.getPrice());
         responsedto.category = productModel.getCategory().getName();
-        return responsedto;
+       return responsedto;
     }
 
 

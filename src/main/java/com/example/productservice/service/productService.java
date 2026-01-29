@@ -17,4 +17,6 @@ public interface productService {
    productModel getProductById(Long id);
 
 //   productModel partialUpdateProduct(Long productId, productModel );
+productModel replaceProduct(Long productId, productModel product);
+
 }
