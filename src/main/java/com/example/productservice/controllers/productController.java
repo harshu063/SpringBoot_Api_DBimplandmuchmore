@@ -49,15 +49,15 @@ public class productController {
          public String GetSingleProduct( @PathVariable Long id){
             return "your product is here :" +id;
     }
-    @GetMapping
-    public List <getAllProductsResponseDto> getAllProducts(){
-        List<productModel> Products = productService.getAllProducts();
-        List<getAllProductsResponseDto>getAllProductsResponseDtos= new ArrayList<>();
-        for( productModel product : Products){
-            getAllProductsResponseDtos.add(getAllProductsResponseDto.from(product));
+        @GetMapping
+            public List <getAllProductsResponseDto> getAllProducts(){
+             List<productModel> Products = productService.getAllProducts();
+             List<getAllProductsResponseDto>getAllProductsResponseDtos= new ArrayList<>();
+                for( productModel product : Products){
+                    getAllProductsResponseDtos.add(getAllProductsResponseDto.from(product));
         }
 
-        return getAllProductsResponseDtos;
+                return getAllProductsResponseDtos;
     }
         @PatchMapping("/{id}")
         public PatchProductResponsedto updateProduct(
