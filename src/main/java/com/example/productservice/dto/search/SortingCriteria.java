@@ -1,0 +1,6 @@
+package com.example.productservice.dto.search;
+
+public enum SortingCriteria {
+    PRICE_LOW_TO_HIGH, PRICE_HIGH_TO_LOW,
+    RELEVANCE,POPULARITY,RATING_HIGH_TO_LOW,RATING_LOW_TO_HIGH,
+}
