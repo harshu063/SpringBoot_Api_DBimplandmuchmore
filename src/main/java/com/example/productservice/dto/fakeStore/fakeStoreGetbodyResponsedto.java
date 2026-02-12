@@ -15,6 +15,8 @@ public class fakeStoreGetbodyResponsedto {
     private String category;
     private String Image;
 
+    public fakeStoreGetbodyResponsedto() {}
+
     public productModel toProduct(){
         productModel product1 = new productModel();
         product1.setId(this.getId());

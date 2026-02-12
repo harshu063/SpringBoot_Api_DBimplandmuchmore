@@ -26,7 +26,7 @@ public class SearchService {
             products= FilterFactory.getFiltersFromKey(filterDto.getKey())
                     .apply(products,filterDto.getValues());
         }
-        products = SorterFactory.getSorterByCriteria(sortingCriteria).sort(products);
+        products = SorterFactory.getSorterByCriteria(sortingCriteria).sort(products, sortingCriteria);
         List<productModel> ProductsOnPage = new ArrayList<>();
         for(int i =pageSize *(pageNumber-1); i<=(pageSize*pageNumber);++i){
             if(i<products.size()){

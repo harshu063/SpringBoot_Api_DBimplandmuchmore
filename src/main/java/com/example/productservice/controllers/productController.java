@@ -23,7 +23,7 @@ public class productController {
 //
 //    }
 
-        public productController (@Qualifier("DBimpl") productService productService){
+        public productController (@Qualifier("fakeStoreProductService") productService productService){
         this.productService=productService;
 
     }
@@ -45,9 +45,11 @@ public class productController {
         }
 
 
-         @GetMapping("{id}")
-         public String GetSingleProduct( @PathVariable Long id){
-            return "your product is here :" +id;
+         @GetMapping("/{id}")
+         public GetProductDto GetSingleProduct( @PathVariable Long id){
+            productModel product = productService.getProductById(id);
+            return GetProductDto.from(product);
+//            return "your product is here :" +id;
     }
         @GetMapping
             public List <getAllProductsResponseDto> getAllProducts(){
